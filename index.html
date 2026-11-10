@@ -105,7 +105,8 @@
     .card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
     .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
     .tag { font-size: 12px; padding: 3px 9px; border-radius: 4px; background: var(--soft); color: var(--muted); border: 1px solid var(--line); }
-    .card-actions { margin-top: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+    .card-actions { margin-top: auto; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .card-url { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; min-width: 0; }
 
     /* About */
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
@@ -224,7 +225,7 @@
         <div class="section-head">
           <p class="eyebrow">Portfolio</p>
           <h2>Projects &amp; Live Demos</h2>
-          <p>Click <strong>Live demo</strong> to open a working site in a new tab, or view the code on GitHub.</p>
+          <p>Every project below is live. Click <strong>View live site</strong> to open it in a new tab and try it yourself.</p>
         </div>
         <div class="filters" role="group" aria-label="Filter projects">
           <button class="filter" data-filter="all" aria-pressed="true">All</button>
@@ -232,12 +233,6 @@
           <button class="filter" data-filter="tool" aria-pressed="false">Business software</button>
         </div>
         <div class="grid" id="project-grid"></div>
-        <p style="margin-top:32px;text-align:center">
-          <a class="btn btn-outline" href="https://github.com/christiaanpbotha" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
-            See all projects on GitHub
-          </a>
-        </p>
       </div>
     </section>
 
@@ -251,8 +246,8 @@
           <p>I'm the developer behind Botha Digital. I build websites and software for small and growing businesses: salons, spas, studios, clinics and companies that need better tools to run their day-to-day.</p>
           <p>Every project gets a clean design, fast performance and a setup that's simple for you to manage. You work with me directly from first idea to launch, and beyond.</p>
           <div class="stats">
-            <div class="stat"><strong>9+</strong><span>Live demo sites</span></div>
-            <div class="stat"><strong>4</strong><span>Business tools</span></div>
+            <div class="stat"><strong>14</strong><span>Live sites</span></div>
+            <div class="stat"><strong>5</strong><span>Business tools</span></div>
             <div class="stat"><strong>100%</strong><span>Mobile-friendly</span></div>
           </div>
         </div>
@@ -302,15 +297,15 @@
       const list = PROJECTS.filter((p) => filter === "all" || p.category === filter);
       grid.innerHTML = list.map((p) => `
         <article class="card">
-          <img class="card-img" src="${esc(p.image)}" alt="Preview of ${esc(p.title)}" loading="lazy" width="800" height="500">
+          <a href="${esc(p.url)}" target="_blank" rel="noopener" tabindex="-1"><img class="card-img" src="${esc(p.image)}" alt="Preview of ${esc(p.title)}" loading="lazy" width="800" height="500"></a>
           <div class="card-body">
             <span class="card-label">${p.category === "demo" ? "Demo website" : "Business software"}</span>
             <h3>${esc(p.title)}</h3>
             <p>${esc(p.description)}</p>
             <div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
             <div class="card-actions">
-              ${p.demo ? `<a class="btn btn-primary btn-sm" href="${esc(p.demo)}" target="_blank" rel="noopener">Live demo ${extIcon}</a>` : ""}
-              <a class="btn btn-outline btn-sm" href="${esc(p.github)}" target="_blank" rel="noopener">GitHub</a>
+              <a class="btn btn-primary btn-sm" href="${esc(p.url)}" target="_blank" rel="noopener">View live site ${extIcon}</a>
+              <span class="card-url">${esc(p.url.replace(/^https?:\/\//, ""))}</span>
             </div>
           </div>
         </article>`).join("");
