@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  /* LaVee: white linen, warm oak, walnut. */
+  --th-bg:         #fbf8f3;
+  --th-card:       #ffffff;
+  --th-card-alt:   #f2ebdf;
+  --th-border:     #e4d9c8;
+  --th-text:       #3a2c22;
+  --th-text-muted: #7d6b5c;
+  --th-accent:     #5e4330;
+  --th-accent-fg:  #ffffff;
+  --th-danger:     #a3473f;
+  --th-warning:    #b0782a;
+  --th-success:    #5e7a4f;
+  --th-muted:      #ffffff;
+  --th-radius:     12px;
+
+  /* Light theme: the staff board's status colours were tuned for dark backgrounds. */
+  --color-amber-300:   #9a5b12;
+  --color-emerald-300: #4f6b40;
+  --color-red-300:     #a8201a;
+  --color-slate-300:   #6b5a4c;
+}
+
+body {
+  background-color: var(--th-bg);
+  color: var(--th-text);
+}
+
+@layer utilities {
+  .rounded-th     { border-radius: var(--th-radius) }
+  .bg-th-bg       { background-color: var(--th-bg) }
+  .bg-th-card     { background-color: var(--th-card) }
+  .bg-th-card-alt { background-color: var(--th-card-alt) }
+  .bg-th-muted    { background-color: var(--th-muted) }
+  .bg-th-accent   { background-color: var(--th-accent) }
+  .bg-th-danger   { background-color: var(--th-danger) }
+  .bg-th-warning  { background-color: var(--th-warning) }
+  .bg-th-success  { background-color: var(--th-success) }
+
+  .text-th-text       { color: var(--th-text) }
+  .text-th-text-muted { color: var(--th-text-muted) }
+  .text-th-accent     { color: var(--th-accent) }
+  .text-th-accent-fg  { color: var(--th-accent-fg) }
+  .text-th-danger     { color: var(--th-danger) }
+  .text-th-warning    { color: var(--th-warning) }
+  .text-th-success    { color: var(--th-success) }
+  .text-th-muted      { color: var(--th-muted) }
+
+  .border-th-border { border-color: var(--th-border) }
+  .border-th-accent { border-color: var(--th-accent) }
+  .border-th-danger { border-color: var(--th-danger) }
+
+  .ring-th-accent { --tw-ring-color: var(--th-accent) }
+  .ring-th-text   { --tw-ring-color: var(--th-text) }
+
+  .placeholder-th-muted::placeholder { color: var(--th-text-muted); opacity: 0.5 }
+
+  .hover\:bg-th-accent:hover   { background-color: var(--th-accent) }
+  .hover\:bg-th-danger:hover   { background-color: var(--th-danger) }
+  .hover\:text-th-text:hover   { color: var(--th-text) }
+  .hover\:text-th-accent:hover { color: var(--th-accent) }
+  .hover\:border-th-accent:hover { border-color: var(--th-accent) }
+  .hover\:border-th-border:hover { border-color: var(--th-border) }
+
+  .focus\:ring-th-accent:focus   { --tw-ring-color: var(--th-accent) }
+  .focus\:border-th-accent:focus { border-color: var(--th-accent) }
+}
+
+input, select, textarea {
+  color: var(--th-text) !important;
+  background-color: var(--th-card) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--th-text-muted);
+  opacity: 0.55;
+}
+
+select option {
+  color: var(--th-text);
+  background-color: var(--th-card);
+}
+
+.font-display { font-family: var(--font-display), Georgia, serif; }
+
