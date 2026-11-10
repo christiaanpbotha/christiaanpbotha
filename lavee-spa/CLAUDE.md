@@ -34,6 +34,7 @@ libSQL. Local `data/booking.db`; prod Turso `lavee-spa` (group us-east, `libsql:
 ## Deploy
 Vercel project `lavee-spa-booking` (team christiaanpbotha), env: `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`, `AUTH_PASSWORD`, `AUTH_SECRET`.
 Currently the code lives in `christiaanpbotha/christiaanpbotha` under `lavee-spa/` (Vercel root directory). Move to its own private repo `lavee-spa-booking` and reconnect the Vercel project when convenient.
+**Blocker (Nov 2026):** the Vercel MCP connection returns 403 on `create_project` and `create_deployment` (no project-create permission), and this session can't create GitHub repos. A human has to do the one-time repo creation + Vercel import; everything else (Turso DB, token, code) is automated.
 
 ## New client site — fast path (what this one took)
 1. Copy the newest booking repo (no `.git`, `node_modules`, client photos); rename package + dev port.
