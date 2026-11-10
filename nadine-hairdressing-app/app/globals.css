@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --th-bg:         #faf8f6;
+  --th-card:       #ffffff;
+  --th-card-alt:   #f1e5d3;
+  --th-border:     #e6dfdb;
+  --th-text:       #1c1a1b;
+  --th-text-muted: #6b6466;
+  --th-accent:     #1c1a1b;
+  --th-accent-fg:  #faf8f6;
+  --th-rose:       #8a6250; /* deep rose gold: highlights + hovers (5.3:1 on white) */
+  --th-blush:      #e8c6c3;
+  --th-danger:     #b42318;
+  --th-warning:    #b54708;
+  --th-success:    #067647;
+  --th-muted:      #ffffff;
+  --th-radius:     14px;
+
+  /* Light theme: the staff board's status colours were tuned for dark backgrounds. */
+  --color-amber-300:   #9a4d06;
+  --color-emerald-300: #08694a;
+  --color-red-300:     #a8201a;
+  --color-slate-300:   #475467;
+}
+
+body {
+  background-color: var(--th-bg);
+  color: var(--th-text);
+}
+
+@layer utilities {
+  .rounded-th     { border-radius: var(--th-radius) }
+  .bg-th-bg       { background-color: var(--th-bg) }
+  .bg-th-card     { background-color: var(--th-card) }
+  .bg-th-card-alt { background-color: var(--th-card-alt) }
+  .bg-th-muted    { background-color: var(--th-muted) }
+  .bg-th-accent   { background-color: var(--th-accent) }
+  .bg-th-danger   { background-color: var(--th-danger) }
+  .bg-th-warning  { background-color: var(--th-warning) }
+  .bg-th-success  { background-color: var(--th-success) }
+
+  .text-th-text       { color: var(--th-text) }
+  .text-th-text-muted { color: var(--th-text-muted) }
+  .text-th-accent     { color: var(--th-accent) }
+  .text-th-rose       { color: var(--th-rose) }
+  .bg-th-blush        { background-color: var(--th-blush) }
+  .hover\:text-th-rose:hover { color: var(--th-rose) }
+  .text-th-accent-fg  { color: var(--th-accent-fg) }
+  .text-th-danger     { color: var(--th-danger) }
+  .text-th-warning    { color: var(--th-warning) }
+  .text-th-success    { color: var(--th-success) }
+  .text-th-muted      { color: var(--th-muted) }
+
+  .border-th-border { border-color: var(--th-border) }
+  .border-th-accent { border-color: var(--th-accent) }
+  .border-th-danger { border-color: var(--th-danger) }
+
+  .ring-th-accent { --tw-ring-color: var(--th-accent) }
+  .ring-th-text   { --tw-ring-color: var(--th-text) }
+
+  .placeholder-th-muted::placeholder { color: var(--th-text-muted); opacity: 0.5 }
+
+  .hover\:bg-th-accent:hover   { background-color: var(--th-accent) }
+  .hover\:bg-th-danger:hover   { background-color: var(--th-danger) }
+  .hover\:text-th-text:hover   { color: var(--th-text) }
+  .hover\:text-th-accent:hover { color: var(--th-accent) }
+  .hover\:border-th-accent:hover { border-color: var(--th-accent) }
+  .hover\:border-th-border:hover { border-color: var(--th-border) }
+
+  .focus\:ring-th-accent:focus   { --tw-ring-color: var(--th-accent) }
+  .focus\:border-th-accent:focus { border-color: var(--th-accent) }
+}
+
+input, select, textarea {
+  color: var(--th-text) !important;
+  background-color: var(--th-card) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--th-text-muted);
+  opacity: 0.55;
+}
+
+select option {
+  color: var(--th-text);
+  background-color: var(--th-card);
+}
+
+.font-display { font-family: var(--font-display), Georgia, serif; }
+.font-script { font-family: var(--font-script), 'Brush Script MT', cursive; font-weight: 400; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
