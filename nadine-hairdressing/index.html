@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nadine Hairdressing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Hair, nails and beauty salon in Brackenhurst, Alberton. Colour, cuts, bridal hair and make-up, Brazilian blow waves, gel and acrylic nails, brows and waxing. Tues–Sat.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FAF8F6'/%3E%3Cg fill='none' stroke='%231C1A1B' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M32 24C22 6 6 14 16 24c7 7 14 4 16 0Z'/%3E%3Cpath d='M32 24C42 6 58 14 48 24c-7 7-14 4-16 0Z'/%3E%3Cpath d='M32 24l-3 36M32 24l3 36'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: single scrolling page in the order a client decides — who/where, what she does, proof (gallery, salon), then book. Light-only on purpose: the brand is her white sign. */
+:root{
+  --ink:#1C1A1B;
+  --paper:#FAF8F6;
+  --white:#FFFFFF;
+  --blush:#E8C6C3;
+  --blush-soft:#F5E4E2;
+  --rose-gold:#C8A28C;
+  --rose-gold-deep:#9C7461;
+  --champagne:#F1E5D3;
+  --dove:#D9D6D7;
+  --muted:#6B6466;
+  --line:#E6DFDB;
+  --f-script:"Great Vibes","Brush Script MT",cursive;
+  --f-display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --f-body:"Jost","Futura","Century Gothic","Helvetica Neue",Arial,sans-serif;
+  --max:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:17px;line-height:1.65}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.1;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,5vw,52px)}
+h3{font-size:26px;font-weight:600}
+.inner{max-width:var(--max);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(64px,9vw,112px)}
+.eyebrow{font-size:12px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-gold-deep);margin-bottom:12px}
+.lede{color:var(--muted);max-width:60ch}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px;max-width:720px}
+.divider{display:flex;align-items:center;gap:14px;color:var(--rose-gold);font-size:14px;width:160px}
+.divider::before,.divider::after{content:"";height:1px;background:var(--rose-gold);flex:1}
+.script{font-family:var(--f-script);font-weight:400}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-body);font-size:13px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:15px 26px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:#000}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+:focus-visible{outline:2px solid var(--rose-gold-deep);outline-offset:3px}
+
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(250,248,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand .script{font-size:40px;line-height:1}
+.brand small{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:400}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:400}
+.nav a:not(.btn):hover{color:var(--rose-gold-deep)}
+.nav .btn{padding:11px 20px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.hero h1{display:flex;flex-direction:column;gap:6px;margin-top:28px}
+.hero h1 .script{font-size:clamp(96px,14vw,168px);line-height:.85}
+.hero h1 .sub{font-family:var(--f-body);font-size:clamp(14px,1.6vw,17px);font-weight:400;letter-spacing:.44em;text-transform:uppercase;padding-left:.5em}
+.hero .tagline{font-family:var(--f-display);font-size:clamp(24px,3vw,32px);line-height:1.25;margin-top:28px;max-width:22ch}
+.hero .lede{margin-top:16px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero .facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:28px;font-size:14px;color:var(--muted)}
+.hero .facts span{display:flex;align-items:center;gap:8px}
+.hero .facts span::before{content:"";width:6px;height:6px;background:var(--rose-gold);transform:rotate(45deg)}
+.hero-img{position:relative;margin:0}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.hero-img::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--rose-gold);z-index:-1}
+.hero-img figcaption{position:absolute;left:0;bottom:0;background:var(--paper);padding:10px 16px;font-size:13px;color:var(--muted)}
+
+/* Category strip */
+.cats{background:var(--ink);color:var(--paper)}
+.cats .inner{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 34px;padding-block:20px}
+.cats a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;font-weight:400}
+.cats a:hover{color:var(--blush)}
+
+/* Services */
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.menu-card{background:var(--white);border:1px solid var(--line);padding:30px 30px 26px;display:flex;flex-direction:column;gap:16px}
+.menu-card header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.menu-card .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-gold-deep);white-space:nowrap}
+.menu-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.menu-card li{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.menu-card li .price{font-size:14px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.menu-card li .note{display:block;font-size:13px;color:var(--muted)}
+.menu-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;background:var(--blush-soft);padding:20px 24px}
+.menu-foot p{font-size:15px;max-width:70ch}
+
+/* Bridal */
+.bridal{background:var(--champagne)}
+.bridal .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,64px);align-items:start}
+.bridal figure{margin:0}
+.bridal figure img{width:100%;aspect-ratio:4/5;object-fit:cover;max-width:100%}
+.bridal .includes{list-style:none;padding:0;margin:24px 0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.bridal .includes li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.bridal .includes li::before{content:"♡";color:var(--rose-gold-deep);font-size:15px;line-height:1.7}
+
+/* Forms */
+.form{background:var(--white);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:18px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+label{display:flex;flex-direction:column;gap:6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:400}
+input,select,textarea{font:inherit;font-size:16px;text-transform:none;letter-spacing:normal;color:var(--ink);background:var(--paper);border:1px solid var(--dove);padding:12px 14px;border-radius:0;width:100%}
+textarea{min-height:88px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose-gold-deep);box-shadow:0 0 0 3px var(--blush-soft)}
+fieldset{border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+legend{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;padding:0;margin-bottom:10px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.check{position:relative}
+.check input{position:absolute;opacity:0;width:1px;height:1px}
+.check span{display:inline-block;padding:9px 16px;border:1px solid var(--dove);background:var(--paper);font-size:15px;cursor:pointer;text-transform:none;letter-spacing:normal}
+.check input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.check input:focus-visible+span{outline:2px solid var(--rose-gold-deep);outline-offset:2px}
+.form-msg{font-size:14px;color:var(--muted)}
+.form-msg.err{color:#9B2C2C}
+
+/* Gallery */
+.gallery-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.gallery-filters button{font:inherit;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border:1px solid var(--dove);background:transparent;color:var(--ink);cursor:pointer}
+.gallery-filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.gallery figure{margin:0;position:relative;overflow:hidden;background:var(--dove)}
+.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s;max-width:100%}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 16px 14px;color:#fff;font-size:14px;letter-spacing:.06em;background:linear-gradient(transparent,rgba(28,26,27,.7))}
+.insta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+
+/* Salon */
+.salon .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:20px;align-items:center}
+.salon .copy{grid-column:1/span 5;display:flex;flex-direction:column;gap:18px}
+.salon .pics{grid-column:6/span 7;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.salon .pics img{width:100%;aspect-ratio:3/4;object-fit:cover;max-width:100%}
+.salon .pics img:last-child{margin-top:48px}
+.points{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.points li{border-top:1px solid var(--line);padding-top:14px}
+.points strong{font-family:var(--f-display);font-size:22px;font-weight:600;display:block}
+.points span{color:var(--muted);font-size:15px}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brands span{font-size:13px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--rose-gold);padding:7px 14px}
+
+/* Booking */
+.book{background:var(--ink);color:var(--paper)}
+.book .eyebrow{color:var(--rose-gold)}
+.book .lede{color:#BDB5B2}
+.book .grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,64px);align-items:start}
+.book .side{display:flex;flex-direction:column;gap:24px}
+.book .side ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;font-size:15px;color:#D8D1CE}
+.book .side li::before{content:"♡ ";color:var(--rose-gold)}
+.check-pattern{height:36px;background:conic-gradient(var(--rose-gold) 25%,var(--ink) 0 50%,var(--rose-gold) 0 75%,var(--ink) 0) 0 0/36px 36px;border:1px solid var(--rose-gold);max-width:216px}
+.booker{background:var(--paper);color:var(--ink);padding:28px;display:flex;flex-direction:column;gap:22px}
+.steps{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.steps li{flex:1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:3px solid var(--dove);padding-top:8px}
+.steps li.on{color:var(--ink);border-top-color:var(--ink)}
+.steps li.done{border-top-color:var(--rose-gold)}
+.step{display:flex;flex-direction:column;gap:18px}
+.step h3{font-size:24px}
+.svc-groups{display:flex;flex-direction:column;gap:16px;max-height:360px;overflow:auto;padding-right:6px}
+.svc-groups h4{margin:0 0 8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--rose-gold-deep)}
+.dates{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:8px}
+.dates button,.times button{font:inherit;border:1px solid var(--dove);background:var(--white);color:var(--ink);cursor:pointer;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.25;font-variant-numeric:tabular-nums}
+.dates button small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dates button strong{font-family:var(--f-display);font-size:24px;font-weight:600}
+.dates button[aria-pressed="true"],.times button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dates button[aria-pressed="true"] small{color:var(--blush)}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px}
+.times button{font-size:15px}
+.step-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+.summary{background:var(--blush-soft);padding:18px 20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.summary dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.summary dd{margin:0 0 6px}
+.picked{font-size:14px;color:var(--muted)}
+
+/* Visit */
+.visit .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.visit .card{background:var(--white);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:12px}
+.hours-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:16px}
+.hours-table td{padding:6px 0;border-bottom:1px solid var(--line)}
+.hours-table td:last-child{text-align:right}
+.hours-table tr.closed td{color:var(--muted)}
+.hours-table tr.today td{font-weight:500}
+.open-now{display:inline-flex;align-items:center;gap:8px;font-size:14px}
+.open-now::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.open-now.is-open::before{background:#4F8A5B}
+.phone{font-family:var(--f-display);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;text-decoration:none;user-select:all}
+.cardnote{font-size:14px;color:var(--muted)}
+
+/* Footer */
+.site-foot{background:var(--paper);border-top:1px solid var(--line)}
+.site-foot .inner{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;padding-block:32px 40px;font-size:14px;color:var(--muted)}
+.site-foot .script{font-size:38px;color:var(--ink)}
+.site-foot nav{display:flex;gap:20px;flex-wrap:wrap}
+.site-foot nav a{text-decoration:none}
+.site-foot nav a:hover{color:var(--ink)}
+.gallery .more{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px;padding:28px;background:var(--blush);text-decoration:none;aspect-ratio:4/5}
+.gallery .more .script{font-size:52px;line-height:1}
+.gallery .more span:last-child{font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* Mobile action bar */
+.mobile-bar{display:none}
+
+@media (max-width:900px){
+  .hero,.bridal .grid,.book .grid{grid-template-columns:1fr}
+  .hero-img{order:-1;max-width:520px}
+  .salon .copy,.salon .pics{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .nav a:not(.btn){display:none}
+  .brand small{display:none}
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+  .mobile-bar a{color:var(--paper);text-decoration:none;text-align:center;padding:18px 4px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-right:1px solid #3A3536}
+  .mobile-bar a:last-child{border-right:0;background:var(--rose-gold);color:var(--ink);font-weight:500}
+  .booker,.form,.menu-card{padding:22px 18px}
+  .salon .pics img:last-child{margin-top:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="inner">
+    <a class="brand" href="#top" aria-label="Nadine Hairdressing, home"><span class="script">Nadine</span><small>Hairdressing</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#bridal">Bridal</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+      <a class="btn" href="#book">Book now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="inner hero" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">Brackenhurst · Alberton</p>
+      <h1 id="hero-title"><span class="script">Nadine</span><span class="sub">Hairdressing</span></h1>
+      <p class="tagline">Hair, nails and beauty, all under one roof.</p>
+      <p class="lede">Colour, cuts and blow waves, bridal hair and make-up, gel nails, brows and waxing. A clean, friendly salon where clients have been coming back for years.</p>
+      <div class="ctas">
+        <a class="btn" href="#book">Book an appointment</a>
+        <a class="btn ghost" href="#services">See services</a>
+      </div>
+      <div class="facts">
+        <span>Tues–Fri 8:00–17:00</span>
+        <span>Sat 8:00–16:00</span>
+        <span>Off-street parking</span>
+      </div>
+    </div>
+    <figure class="hero-img">
+      <img src="images/rose-wall.jpg" alt="Styling station in front of a large mirror framed in pink and cream roses" width="720" height="954">
+      <figcaption>The rose wall, inside the salon</figcaption>
+    </figure>
+  </section>
+
+  <nav class="cats" aria-label="Service categories">
+    <div class="inner">
+      <a href="#svc-cuts">Cuts</a><a href="#svc-colour">Colour</a><a href="#svc-treatments">Treatments</a><a href="#bridal">Bridal</a><a href="#svc-nails">Nails</a><a href="#svc-beauty">Beauty</a>
+    </div>
+  </nav>
+
+  <section class="band" id="services" aria-labelledby="services-title">
+    <div class="inner">
+      <div class="sec-head">
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title">Something for the whole family</h2>
+        <div class="divider" aria-hidden="true">♡</div>
+        <p class="lede">From a quick gents' cut to a full colour, blow wave and gel nails in one visit.</p>
+      </div>
+
+      <div class="menu">
+        <article class="menu-card" id="svc-cuts">
+          <header><h3>Cuts &amp; Styling</h3><span class="tag">Ladies · Gents · Kids</span></header>
+          <ul>
+            <li><span>Ladies' cut &amp; blow-dry</span><span class="price">from R —</span></li>
+            <li><span>Gents' cut</span><span class="price">from R —</span></li>
+            <li><span>Children's cut</span><span class="price">from R —</span></li>
+            <li><span>Curly hair cut &amp; style</span><span class="price">from R —</span></li>
+            <li><span>Hairstyling &amp; blow-wave</span><span class="price">from R —</span></li>
+            <li><span>Updos</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+
+        <article class="menu-card" id="svc-colour">
+          <header><h3>Colour</h3><span class="tag">L'Oréal Professionnel</span></header>
+          <ul>
+            <li><span>Full colour / roots</span><span class="price">from R —</span></li>
+            <li><span>Highlights &amp; foils</span><span class="price">from R —</span></li>
+            <li><span>Balayage</span><span class="price">from R —</span></li>
+            <li><span>Colour matching<span class="note">Bring a photo of the shade you want</span></span><span class="price">quote</span></li>
+            <li><span>Toner &amp; gloss</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+
+        <article class="menu-card" id="svc-treatments">
+          <header><h3>Treatments</h3><span class="tag">Consultation first</span></header>
+          <ul>
+            <li><span>Brazilian blow wave<span class="note">Smooth, frizz-free hair for weeks</span></span><span class="price">quote</span></li>
+            <li><span>Hair Botox<span class="note">Deep repair for dry, damaged hair</span></span><span class="price">quote</span></li>
+            <li><span>Hair extensions</span><span class="price">quote</span></li>
+            <li><span>Perms</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+
+        <article class="menu-card" id="svc-nails">
+          <header><h3>Nails</h3><span class="tag">Hands &amp; feet</span></header>
+          <ul>
+            <li><span>Gel nails</span><span class="price">from R —</span></li>
+            <li><span>Acrylic nails</span><span class="price">from R —</span></li>
+            <li><span>Manicure</span><span class="price">from R —</span></li>
+            <li><span>Pedicure</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+
+        <article class="menu-card" id="svc-beauty">
+          <header><h3>Beauty</h3><span class="tag">Brows · Waxing · Make-up</span></header>
+          <ul>
+            <li><span>Eyebrow tint</span><span class="price">from R —</span></li>
+            <li><span>Facial waxing</span><span class="price">from R —</span></li>
+            <li><span>Body waxing</span><span class="price">from R —</span></li>
+            <li><span>Make-up application</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+
+        <article class="menu-card">
+          <header><h3>Bridal &amp; Occasions</h3><span class="tag">By enquiry</span></header>
+          <ul>
+            <li><span>Bridal hair, with trial</span><span class="price">package</span></li>
+            <li><span>Bridal make-up</span><span class="price">package</span></li>
+            <li><span>Bridesmaids &amp; mothers</span><span class="price">per person</span></li>
+            <li><span>Matric dance &amp; events</span><span class="price">from R —</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="menu-foot">
+        <p>Colour corrections, extensions, Brazilian blow waves and Hair Botox start with a quick consultation, so the price fits your hair. All prices are confirmed when Nadine confirms your booking.</p>
+        <a class="btn" href="#book">Book now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band bridal" id="bridal" aria-labelledby="bridal-title">
+    <div class="inner grid">
+      <figure>
+        <img src="images/bridal.jpg" alt="Bridal half-up style with long platinum curls and a floral hair vine" width="720" height="713" loading="lazy">
+      </figure>
+      <div>
+        <p class="eyebrow">Bridal &amp; occasion</p>
+        <h2 id="bridal-title">Your wedding morning, sorted</h2>
+        <p class="lede" style="margin-top:16px">Hair, make-up and nails for the bride and the whole bridal party, planned with you from the trial to the big day.</p>
+        <ul class="includes">
+          <li>Trial run of your hair before the day</li>
+          <li>Bridal hair and make-up</li>
+          <li>Gel nails for the bride and party</li>
+          <li>Hair for bridesmaids and moms</li>
+        </ul>
+        <form class="form" id="bridal-form" novalidate>
+          <h3>Bridal enquiry</h3>
+          <div class="row">
+            <label for="b-name">Your name<input id="b-name" name="name" autocomplete="name" required></label>
+            <label for="b-phone">Cellphone<input id="b-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+          </div>
+          <div class="row">
+            <label for="b-date">Wedding date<input id="b-date" name="date" type="date" required></label>
+            <label for="b-party">People needing hair / make-up<select id="b-party" name="party"><option>Just me</option><option>2–3</option><option>4–6</option><option>7 or more</option></select></label>
+          </div>
+          <fieldset>
+            <legend>I'm interested in</legend>
+            <div class="checks">
+              <label class="check" for="b-s1"><input type="checkbox" id="b-s1" value="Hair" checked><span>Hair</span></label>
+              <label class="check" for="b-s2"><input type="checkbox" id="b-s2" value="Make-up"><span>Make-up</span></label>
+              <label class="check" for="b-s3"><input type="checkbox" id="b-s3" value="Nails"><span>Nails</span></label>
+              <label class="check" for="b-s4"><input type="checkbox" id="b-s4" value="Trial" checked><span>Trial</span></label>
+            </div>
+          </fieldset>
+          <label for="b-notes">Anything else? (venue, style ideas)<textarea id="b-notes" name="notes"></textarea></label>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+            <button class="btn" type="submit" id="b-submit">Send enquiry on WhatsApp</button>
+            <p class="form-msg" id="b-msg" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="gallery" aria-labelledby="gallery-title">
+    <div class="inner">
+      <div class="sec-head">
+        <p class="eyebrow">Recent work</p>
+        <h2 id="gallery-title">Gallery</h2>
+        <div class="divider" aria-hidden="true">♡</div>
+      </div>
+      <div class="gallery-filters" role="group" aria-label="Filter gallery">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="colour" aria-pressed="false">Colour</button>
+        <button type="button" data-filter="cuts" aria-pressed="false">Cuts &amp; styling</button>
+        <button type="button" data-filter="bridal" aria-pressed="false">Bridal</button>
+      </div>
+      <div class="gallery" id="gallery-grid">
+        <figure data-cat="colour"><img src="images/copper.jpg" alt="Copper red colour with blonde highlights, styled in loose curls" loading="lazy"><figcaption>Copper with highlights</figcaption></figure>
+        <figure data-cat="bridal"><img src="images/bridal.jpg" alt="Bridal half-up curls with floral hair vine" loading="lazy"><figcaption>Bridal half-up</figcaption></figure>
+        <figure data-cat="colour"><img src="images/colour-match.jpg" alt="Long layered caramel balayage" loading="lazy"><figcaption>Colour matching</figcaption></figure>
+        <figure data-cat="cuts"><img src="images/gents-cut.jpg" alt="Before and after of a gents' undercut with a platinum toned top" loading="lazy"><figcaption>Gents' cut, before &amp; after</figcaption></figure>
+        <figure data-cat="cuts"><img src="images/brunette-waves.jpg" alt="Glossy brunette bob with soft waves" loading="lazy"><figcaption>Brunette waves</figcaption></figure>
+        <figure data-cat="colour"><img src="images/highlights.jpg" alt="Shoulder-length dark hair with chunky blonde highlights" loading="lazy"><figcaption>Highlights &amp; lowlights</figcaption></figure>
+        <figure data-cat="cuts"><img src="images/blonde-curls.jpg" alt="Long blonde hair styled in big soft curls" loading="lazy"><figcaption>Blonde curls</figcaption></figure>
+        <a class="more" data-cat="all" href="https://www.instagram.com/nadine.hairdressing/" target="_blank" rel="noopener"><span class="script">More work</span><span>See it on Instagram →</span></a>
+      </div>
+      <div class="insta">
+        <p class="lede">More on Instagram and Facebook.</p>
+        <a class="btn ghost" href="https://www.instagram.com/nadine.hairdressing/" target="_blank" rel="noopener">@nadine.hairdressing</a>
+        <a class="btn ghost" href="https://www.facebook.com/nadinehairdressing85/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band salon" id="salon" aria-labelledby="salon-title" style="background:var(--white)">
+    <div class="inner grid">
+      <div class="copy">
+        <p class="eyebrow">The salon</p>
+        <h2 id="salon-title">Clean, calm and a little bit pretty</h2>
+        <p class="lede">Clients mention the same things again and again: how clean the salon is, how friendly it feels, and that they've been coming back for years.</p>
+        <ul class="points">
+          <li><strong>Spotless</strong><span>Fresh towels, clean stations, every client.</span></li>
+          <li><strong>Relaxed</strong><span>Backwash basins, rose-wall mirrors and time to unwind.</span></li>
+          <li><strong>Easy to reach</strong><span>Behind the gate on Hennie Alberts St, with parking inside.</span></li>
+        </ul>
+        <p class="eyebrow" style="margin:8px 0 0">Products we use and sell</p>
+        <div class="brands"><span>L'Oréal Professionnel</span><span>Osmo</span><span>Hannon</span></div>
+      </div>
+      <div class="pics">
+        <img src="images/wash-area.jpg" alt="Two black backwash basins in front of black and rose-gold checkerboard wall panels" loading="lazy">
+        <img src="images/rose-wall.jpg" alt="Station with the rose-framed mirror" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="band book" id="book" aria-labelledby="book-title">
+    <div class="inner grid">
+      <div class="side">
+        <div>
+          <p class="eyebrow">Appointments</p>
+          <h2 id="book-title">Book your visit</h2>
+        </div>
+        <p class="lede">Choose your services, a day and a time. Your request goes to Nadine on WhatsApp, and she confirms the slot and price with you.</p>
+        <ul>
+          <li>Open Tuesday to Saturday</li>
+          <li>Book hair and nails in the same visit</li>
+          <li>Treatments start with a consultation</li>
+          <li>Please give 24 hours' notice to cancel</li>
+        </ul>
+        <div class="check-pattern" aria-hidden="true"></div>
+      </div>
+
+      <div class="booker" id="booker">
+        <ol class="steps" aria-label="Booking steps">
+          <li data-step="1">Services</li><li data-step="2">Day</li><li data-step="3">Time</li><li data-step="4">Details</li>
+        </ol>
+
+        <div class="step" data-panel="1">
+          <h3>What would you like?</h3>
+          <div class="svc-groups" id="svc-groups"></div>
+          <p class="picked" id="picked" aria-live="polite">Nothing selected yet</p>
+        </div>
+
+        <div class="step" data-panel="2" hidden>
+          <h3>Pick a day</h3>
+          <div class="dates" id="dates" role="group" aria-label="Available days"></div>
+        </div>
+
+        <div class="step" data-panel="3" hidden>
+          <h3>Pick a time</h3>
+          <p class="picked" id="time-day"></p>
+          <div class="times" id="times" role="group" aria-label="Available times"></div>
+        </div>
+
+        <div class="step" data-panel="4" hidden>
+          <h3>Your details</h3>
+          <div class="row">
+            <label for="k-name">Name<input id="k-name" autocomplete="name"></label>
+            <label for="k-phone">Cellphone<input id="k-phone" type="tel" inputmode="tel" autocomplete="tel"></label>
+          </div>
+          <fieldset>
+            <legend>Have you been to Nadine before?</legend>
+            <div class="checks">
+              <label class="check" for="k-new1"><input type="radio" name="k-new" id="k-new1" value="Returning client" checked><span>Yes</span></label>
+              <label class="check" for="k-new2"><input type="radio" name="k-new" id="k-new2" value="New client"><span>First visit</span></label>
+            </div>
+          </fieldset>
+          <label for="k-notes">Notes (optional)<textarea id="k-notes" placeholder="e.g. current colour, hair length, inspiration photo to follow"></textarea></label>
+          <dl class="summary" id="summary"></dl>
+        </div>
+
+        <div class="step-nav">
+          <button class="btn ghost" type="button" id="k-back" hidden>Back</button>
+          <button class="btn" type="button" id="k-next" disabled>Next</button>
+          <a class="btn" id="k-send" href="#" target="_blank" rel="noopener" hidden>Send request on WhatsApp</a>
+        </div>
+        <p class="form-msg" id="k-msg" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band visit" id="visit" aria-labelledby="visit-title">
+    <div class="inner">
+      <div class="sec-head">
+        <p class="eyebrow">Visit</p>
+        <h2 id="visit-title">Find the salon</h2>
+        <div class="divider" aria-hidden="true">♡</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Address</h3>
+          <p>85 Hennie Alberts Street<br>Brackenhurst, Alberton<br>Gauteng</p>
+          <p class="cardnote">Come through the gate. There is parking inside.</p>
+          <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Nadine+Hairdressing+85+Hennie+Alberts+Street+Brackenhurst+Alberton" target="_blank" rel="noopener">Directions</a>
+        </div>
+        <div class="card">
+          <h3>Trading hours</h3>
+          <p class="open-now" id="open-now">Tues–Sat</p>
+          <table class="hours-table" id="hours">
+            <tbody>
+              <tr data-day="1" class="closed"><td>Monday</td><td>Closed</td></tr>
+              <tr data-day="2"><td>Tuesday</td><td>8:00–17:00</td></tr>
+              <tr data-day="3"><td>Wednesday</td><td>8:00–17:00</td></tr>
+              <tr data-day="4"><td>Thursday</td><td>8:00–17:00</td></tr>
+              <tr data-day="5"><td>Friday</td><td>8:00–17:00</td></tr>
+              <tr data-day="6"><td>Saturday</td><td>8:00–16:00</td></tr>
+              <tr data-day="0" class="closed"><td>Sunday</td><td>Closed</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="cardnote">Cell &amp; WhatsApp</p>
+          <a class="phone" href="tel:+27846562918">084 656 2918</a>
+          <p class="cardnote">Salon landline</p>
+          <a class="phone" href="tel:+27118677001">011 867 7001</a>
+          <a class="btn" href="https://wa.me/27846562918" target="_blank" rel="noopener">WhatsApp Nadine</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="inner">
+    <span class="script">Nadine</span>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a><a href="#bridal">Bridal</a><a href="#gallery">Gallery</a><a href="#book">Book</a>
+      <a href="https://www.instagram.com/nadine.hairdressing/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/nadinehairdressing85/" target="_blank" rel="noopener">Facebook</a>
+    </nav>
+    <p>© <span id="yr">2026</span> Nadine Hairdressing · Brackenhurst, Alberton</p>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a href="tel:+27846562918">Call</a>
+  <a href="https://wa.me/27846562918" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#book">Book</a>
+</nav>
+
+<script>
+(function(){
+  var WA = "27846562918";
+  var SERVICES = {
+    "Cuts & Styling": ["Ladies' cut & blow-dry","Gents' cut","Children's cut","Curly hair cut","Hairstyling / blow-wave","Updo"],
+    "Colour": ["Full colour / roots","Highlights & foils","Balayage","Colour matching","Toner & gloss"],
+    "Treatments": ["Brazilian blow wave","Hair Botox","Hair extensions","Perm"],
+    "Nails": ["Gel nails","Acrylic nails","Manicure","Pedicure"],
+    "Beauty": ["Eyebrow tint","Facial waxing","Body waxing","Make-up"]
+  };
+  var CONSULT = ["Colour matching","Brazilian blow wave","Hair Botox","Hair extensions"];
+  // Day of week -> [open hour, close hour]; null = closed
+  var HOURS = {0:null,1:null,2:[8,17],3:[8,17],4:[8,17],5:[8,17],6:[8,16]};
+  var DAYS = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function waLink(text){ return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); }
+  function pad(n){ return (n<10?"0":"")+n; }
+  function fmtDate(d){ return DAYS[d.getDay()] + " " + d.getDate() + " " + MONTHS[d.getMonth()]; }
+  function $(id){ return document.getElementById(id); }
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* ---------- Hours: today + open now ---------- */
+  (function(){
+    var now = new Date(), d = now.getDay(), h = HOURS[d];
+    var row = document.querySelector('#hours tr[data-day="'+d+'"]');
+    if (row) row.classList.add("today");
+    var el = $("open-now"), t = now.getHours() + now.getMinutes()/60;
+    if (h && t >= h[0] && t < h[1]) { el.textContent = "Open now, until " + h[1] + ":00"; el.classList.add("is-open"); }
+    else { el.textContent = "Closed now"; }
+  })();
+
+  /* ---------- Gallery filter ---------- */
+  var fBtns = document.querySelectorAll(".gallery-filters button");
+  fBtns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var f = b.getAttribute("data-filter");
+      fBtns.forEach(function(x){ x.setAttribute("aria-pressed", x===b ? "true" : "false"); });
+      document.querySelectorAll("#gallery-grid [data-cat]").forEach(function(fig){
+        var c = fig.getAttribute("data-cat");
+        fig.hidden = !(f === "all" || c === f || c === "all");
+      });
+    });
+  });
+
+  /* ---------- Bridal enquiry ---------- */
+  var bf = $("bridal-form");
+  bf.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = $("b-name").value.trim(), phone = $("b-phone").value.trim(), date = $("b-date").value;
+    var msg = $("b-msg");
+    if (!name || !phone || !date) { msg.textContent = "Please add your name, cellphone and wedding date."; msg.className = "form-msg err"; return; }
+    var wants = Array.prototype.slice.call(bf.querySelectorAll(".checks input:checked")).map(function(i){ return i.value; });
+    var text = "Hi Nadine, I'd like to enquire about bridal services.\n\n" +
+      "Name: " + name + "\nCell: " + phone + "\nWedding date: " + date +
+      "\nPeople: " + $("b-party").value + "\nInterested in: " + (wants.join(", ") || "Not sure yet") +
+      ($("b-notes").value.trim() ? "\nNotes: " + $("b-notes").value.trim() : "");
+    var a = document.createElement("a");
+    a.href = waLink(text); a.target = "_blank"; a.rel = "noopener";
+    document.body.appendChild(a); a.click(); a.remove();
+    msg.className = "form-msg";
+    msg.innerHTML = 'WhatsApp should open with your message ready to send. If it doesn\'t, message <strong>084 656 2918</strong>.';
+  });
+
+  /* ---------- Booking request ---------- */
+  var state = { step:1, services:[], date:null, time:null };
+  var groups = $("svc-groups");
+  Object.keys(SERVICES).forEach(function(cat, ci){
+    var wrap = document.createElement("div");
+    var h = document.createElement("h4"); h.textContent = cat; wrap.appendChild(h);
+    var c = document.createElement("div"); c.className = "checks";
+    SERVICES[cat].forEach(function(s, si){
+      var id = "k-s-" + ci + "-" + si;
+      var l = document.createElement("label"); l.className = "check"; l.htmlFor = id;
+      var i = document.createElement("input"); i.type = "checkbox"; i.id = id; i.value = s;
+      var sp = document.createElement("span"); sp.textContent = s;
+      i.addEventListener("change", function(){
+        if (i.checked) state.services.push(s); else state.services = state.services.filter(function(x){ return x!==s; });
+        renderPicked(); updateNav();
+      });
+      l.appendChild(i); l.appendChild(sp); c.appendChild(l);
+    });
+    wrap.appendChild(c); groups.appendChild(wrap);
+  });
+
+  function renderPicked(){
+    var p = $("picked");
+    if (!state.services.length) { p.textContent = "Nothing selected yet"; return; }
+    var needs = state.services.filter(function(s){ return CONSULT.indexOf(s) > -1; });
+    p.textContent = state.services.length + " selected: " + state.services.join(", ") +
+      (needs.length ? ". " + needs.join(", ") + " starts with a quick consultation." : "");
+  }
+
+  // Next 3 weeks of open days (from tomorrow)
+  var dates = $("dates");
+  (function(){
+    var d = new Date(); d.setHours(0,0,0,0);
+    var added = 0;
+    for (var k=1; k<=28 && added<18; k++){
+      var day = new Date(d); day.setDate(d.getDate()+k);
+      if (!HOURS[day.getDay()]) continue;
+      added++;
+      var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed","false");
+      b.innerHTML = "<small>"+DAYS[day.getDay()]+"</small><strong>"+day.getDate()+"</strong><small>"+MONTHS[day.getMonth()]+"</small>";
+      b.setAttribute("aria-label", fmtDate(day));
+      (function(day,b){
+        b.addEventListener("click", function(){
+          state.date = day; state.time = null;
+          dates.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
+          updateNav();
+        });
+      })(day,b);
+      dates.appendChild(b);
+    }
+  })();
+
+  function renderTimes(){
+    var t = $("times"); t.innerHTML = "";
+    if (!state.date) return;
+    $("time-day").textContent = fmtDate(state.date);
+    var h = HOURS[state.date.getDay()];
+    for (var m = h[0]*60; m <= (h[1]-1)*60; m += 30){
+      var label = Math.floor(m/60) + ":" + pad(m%60);
+      var b = document.createElement("button"); b.type = "button"; b.textContent = label;
+      b.setAttribute("aria-pressed", state.time===label ? "true" : "false");
+      (function(label,b){
+        b.addEventListener("click", function(){
+          state.time = label;
+          t.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
+          updateNav();
+        });
+      })(label,b);
+      t.appendChild(b);
+    }
+  }
+
+  function buildText(){
+    var nw = document.querySelector('input[name="k-new"]:checked');
+    return "Hi Nadine, I'd like to book an appointment.\n\n" +
+      "Services: " + state.services.join(", ") +
+      "\nPreferred: " + fmtDate(state.date) + " at " + state.time +
+      "\nName: " + $("k-name").value.trim() +
+      "\nCell: " + $("k-phone").value.trim() +
+      "\n" + (nw ? nw.value : "") +
+      ($("k-notes").value.trim() ? "\nNotes: " + $("k-notes").value.trim() : "");
+  }
+
+  function renderSummary(){
+    var s = $("summary");
+    s.innerHTML = "";
+    [["Services", state.services.join(", ")],["When", fmtDate(state.date) + " at " + state.time]].forEach(function(r){
+      var dt = document.createElement("dt"); dt.textContent = r[0];
+      var dd = document.createElement("dd"); dd.textContent = r[1];
+      s.appendChild(dt); s.appendChild(dd);
+    });
+  }
+
+  function valid(step){
+    if (step===1) return state.services.length > 0;
+    if (step===2) return !!state.date;
+    if (step===3) return !!state.time;
+    if (step===4) return $("k-name").value.trim() && $("k-phone").value.replace(/\D/g,"").length >= 9;
+    return false;
+  }
+
+  function updateNav(){
+    $("k-next").disabled = !valid(state.step);
+    var send = $("k-send");
+    if (state.step===4){
+      var ok = valid(4);
+      send.href = ok ? waLink(buildText()) : "#";
+      send.setAttribute("aria-disabled", ok ? "false" : "true");
+      send.style.opacity = ok ? "" : ".35";
+      send.style.pointerEvents = ok ? "" : "none";
+    }
+  }
+
+  function show(step){
+    state.step = step;
+    document.querySelectorAll("#booker [data-panel]").forEach(function(p){ p.hidden = +p.getAttribute("data-panel") !== step; });
+    document.querySelectorAll("#booker .steps li").forEach(function(li){
+      var n = +li.getAttribute("data-step");
+      li.className = n===step ? "on" : (n<step ? "done" : "");
+      if (n===step) li.setAttribute("aria-current","step"); else li.removeAttribute("aria-current");
+    });
+    $("k-back").hidden = step===1;
+    $("k-next").hidden = step===4;
+    $("k-send").hidden = step!==4;
+    $("k-msg").textContent = "";
+    if (step===3) renderTimes();
+    if (step===4) renderSummary();
+    updateNav();
+  }
+
+  $("k-next").addEventListener("click", function(){ if (valid(state.step)) show(state.step+1); });
+  $("k-back").addEventListener("click", function(){ show(state.step-1); });
+  ["k-name","k-phone","k-notes"].forEach(function(id){ $(id).addEventListener("input", updateNav); });
+  document.querySelectorAll('input[name="k-new"]').forEach(function(r){ r.addEventListener("change", updateNav); });
+  $("k-send").addEventListener("click", function(){
+    $("k-msg").innerHTML = 'WhatsApp should open with your request ready to send. If it doesn\'t, message <strong>084 656 2918</strong>.';
+  });
+
+  show(1);
+})();
+</script>
+</body>
+</html>
