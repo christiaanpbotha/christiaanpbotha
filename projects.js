@@ -103,22 +103,6 @@ const PROJECTS = [
     tags: ["Inventory", "Business Tool", "TypeScript"],
   },
   {
-    title: "Business Dashboard",
-    description: "Management dashboard that brings key business figures and reports together on one screen.",
-    category: "tool",
-    url: "https://dashboard-xi-gules-45.vercel.app",
-    image: placeholder("Business Dashboard"),
-    tags: ["Dashboard", "Business Tool", "TypeScript"],
-  },
-  {
-    title: "Tool Register",
-    description: "Register for tracking company tools and equipment: who has what, and where it is.",
-    category: "tool",
-    url: "https://lamm-tool-register.vercel.app",
-    image: placeholder("Tool Register"),
-    tags: ["Asset Tracking", "Business Tool", "JavaScript"],
-  },
-  {
     title: "Timesheet",
     description: "Timesheet app for capturing employee hours and simplifying payroll reporting.",
     category: "tool",
